@@ -3,20 +3,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const StudentSchema = new Schema({
-    contactinfo: {
-        firstname: String,
-        lastname: String,
-        phonenumber: {
-            type: String,
-            unique: true,
-            match: [/^\(?[2-9]\d{2}[-)]?\d{3}-?\d{4}$/, "Please enter a ten-digit phone number"]
-   
-        },
-        email:  {
-            type: String,
-            unique: true,
-            match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-          },
+    firstname: String,
+    lastname: String,
+    phonenumber: {
+        type: String,
+        //unique: true,
+        //match: [/^\(?[2-9]\d{2}[-)]?\d{3}-?\d{4}$/, "Please enter a ten-digit phone number"]
+
+    },
+    email: {
+        type: String,
+        //unique: true,
+        //match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
     // classes: {
     //     attended: [
@@ -38,20 +36,17 @@ const StudentSchema = new Schema({
     //         default: 0
     //     }
     // },
-    rank: {
-        belt: {
-            type: String,
-            default: "white"
-        },
-        stripes: {
-            type: Number,
-            default: 0
-        },
-        dateoflastpromotion: {
-            type: Date,
-            default: Date.now
-        },
+    belt: {
+        type: String,
+        default: "white"
+    },
+    stripes: {
+        type: Number,
+        default: 0
     }
+    //dateoflastpromotion: {
+    //    type: Date,
+    //}
 });
 
 //collection 'student' made from StudentSchema
