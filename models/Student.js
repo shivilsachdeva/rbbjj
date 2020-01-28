@@ -43,10 +43,10 @@ const StudentSchema = new Schema({
     stripes: {
         type: Number,
         default: 0
+    },
+    dateoflastpromotion: {
+       type: Date,
     }
-    //dateoflastpromotion: {
-    //    type: Date,
-    //}
 });
 
 //collection 'student' made from StudentSchema
