@@ -17,7 +17,7 @@ router.route('/addstudent').post((req, res) => {
     const email = req.body.email;
     const belt = req.body.belt;
     const stripes = req.body.stripes;
-    const dateoflastpromotion = (req.body.dateoflastpromotion).format('MM-DD-YYYY');
+    const dateoflastpromotion = req.body.dateoflastpromotion;
 
     const newStudent = new Student({
         firstname,
@@ -34,12 +34,20 @@ router.route('/addstudent').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-//find student by ID
+//find student by id
 //http://localhost:5000/students/id
 router.route('/:id').get((req, res) => {
     Student.findById(req.params.id)
         .then(student => res.json(student))
         .catch(err => res.status(400).json('Error: ' + err));
+});
+
+//find student by id AND Delete
+//http://localhost:5000/students/id
+router.route('/:id').delete((req, res) => {
+    Student.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Student Deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 
