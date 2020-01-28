@@ -20,10 +20,12 @@ connection.once('open', () => {
 });
 
 //Require Files for Routes
-const studentsRouter = require('./routes/Students');
+const studentsRouter = require('./routes/students');
+const classRouter = require('./routes/class');
 
 //Routes - will load all files in /* file
 app.use('/students', studentsRouter);
+app.use('/class', classRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
