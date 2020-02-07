@@ -14,14 +14,14 @@ router.route('/addclass').post((req, res) => {
     const title = req.body.title;
     const starttime = req.body.starttime;
     const endtime = req.body.endtime;
-    const type = req.body.type;
+    const trainingtype = req.body.trainingtype;
     const days = req.body.days;
 
     const newClass = new Class({
         title,
         starttime,
         endtime,
-        type,
+        trainingtype,
         days,
     });
 

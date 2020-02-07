@@ -15,7 +15,7 @@ const ClassSchema = new Schema({
         type: String, // 5:00 pm   moment.format("h:mm a")
         required: true
     },
-    type: {
+    trainingtype: {
         type: String, // gi, nogi, kickboxing
         required: true
     },
