@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-export default class AddClass extends Component {
+export default class newClass extends Component {
     constructor(props) {
         super(props);
 
@@ -24,17 +24,16 @@ export default class AddClass extends Component {
     }
 
 
-    // componentDidMount() {
-    //     axios.get('/')
-    //         .then(res => {
-    //             if (res.data.length > 0) {
-    //                 this.setState({
-    //                     newClass: res.data.map(newClass => newClass.title),
-    //                     title: res.data[0].title
-    //                 })
-    //             }
-    //         })
-    // }
+    componentDidMount() {
+        this.setState({
+            title: [" "],
+            starttime: [' '],
+            endtime: [' '],
+            trainingtype: [' '],
+            days: [' ']
+        })
+            
+    }
 
     onChangeTitle(event) {
         this.setState({
@@ -79,7 +78,7 @@ export default class AddClass extends Component {
 
         console.log(newClass);
 
-        axios.post('/addclass', newClass)
+        axios.post('/newClass', newClass)
             .then(res => console.log(res.data));
 
         //after you submit training, refreshes page
@@ -106,7 +105,7 @@ export default class AddClass extends Component {
 
                     <div className="form-group">
                         <label>Start Time: </label>
-                        <input type="text"
+                        <input type='text'
                             className="form-control"
                             value={this.state.starttime}
                             onChange={this.onChangeStartTime}
@@ -116,7 +115,7 @@ export default class AddClass extends Component {
                     <div className="form-group">
                         <label>End Time: </label>
                         <input
-                            type="text"
+                            type='text'
                             className="form-control"
                             value={this.state.endtime}
                             onChange={this.onChangeEndTime}
@@ -124,24 +123,22 @@ export default class AddClass extends Component {
                     </div>
 
                     <div className="form-group">
-                        <div className="form-group">
                             <label>Training Type: </label>
                             <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.trainingtype}
-                            onChange={this.onChangeTrainingType}
+                                type='text'
+                                className="form-control"
+                                value={this.state.trainingtype}
+                                onChange={this.onChangeTrainingType}
                             />
-                        </div>
                     </div>
 
                     <div className="form-group">
                         <label>Days: </label>
                         <input
-                        type="text"
-                        className="form-control"
-                        value={this.state.days}
-                        onChange={this.onChangeDays}
+                            type='text'
+                            className="form-control"
+                            value={this.state.days}
+                            onChange={this.onChangeDays}
                         />
                     </div>
                     
@@ -149,6 +146,7 @@ export default class AddClass extends Component {
                     <div className="form-group">
                         <input type="submit" value="Add Class" className="btn btn-primary" />
                     </div>
+                    
                 </form>
             </div>
         )
